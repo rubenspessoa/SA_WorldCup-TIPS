@@ -16,14 +16,24 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>
 #
-#!/usr/bin/env python
+#
 
-import os
-import sys
+from django.db import models
 
-if __name__ == "__main__":
-    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "SA_WorldCup.settings")
+class Tweet(models.Model):
+    tweet = models.TextField()
 
-    from django.core.management import execute_from_command_line
+    def __unicode__(self):
+        return self.tweet
+    
+class Tweet_Parsed(models.Model):
+    tweet_parsed = models.TextField()
 
-    execute_from_command_line(sys.argv)
+    def __unicode__(self):
+        return self.tweet_parsed
+    
+class Score(models.Model):
+    score = models.IntegerField()
+
+    def __unicode__(self):
+        return self.score

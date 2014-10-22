@@ -16,14 +16,30 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>
 #
-#!/usr/bin/env python
+#
 
-import os
-import sys
+from util.util import stringToDict, pre_process
 
-if __name__ == "__main__":
-    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "SA_WorldCup.settings")
+PATH = '/home/kiko/workspace/SA_WorldCup/Tweets_WorldCup_2014/'
 
-    from django.core.management import execute_from_command_line
+if __name__ == '__main__':
+    import sqlite3
 
-    execute_from_command_line(sys.argv)
+    bd1 = sqlite3.connect(PATH + 'db-1.sqlite3')
+    bd2 = sqlite3.connect(PATH + 'db-2.sqlite3')
+    bd3 = sqlite3.connect(PATH + 'db-3.sqlite3')
+    
+    bd1_cursor = bd1.cursor()
+    
+    contador = 0
+    
+    for row in bd1_cursor.execute("SELECT tweet FROM tweets_tweet"):
+        if contador >= 481265:
+            dict_row = stringToDict(row[0])
+            if dict_row["lang"] == "en":
+                tweet = dict_row['text']
+                pre_processed = pre_process(tweet)
+                if len(pre_processed) > 0:
+                    print pre_processed
+        else:
+            contador += 1
