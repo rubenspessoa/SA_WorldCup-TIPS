@@ -57,3 +57,28 @@ def stringToDict(text):
     import ast
     return ast.literal_eval(text)
     
+
+def rateSentiment(sentiString):
+    import shlex, subprocess
+    print 1
+    #open a subprocess using shlex to get the command line string into the correct args list format
+    commands = ['java', '-jar', 'SentiStrength.jar', 'sentidata', '/home/kiko/workspace/Sentistrength/']
+    
+    p = subprocess.Popen(commands, shell=True, cwd=r'/home/kiko/workspace/Sentistrength/', stdin = subprocess.PIPE, stdout = subprocess.PIPE, stderr = subprocess.PIPE)
+    print 2, commands
+    
+    subprocess.Popen.stdin = "good+man"
+    #communicate via stdin the string to be rated. Note that all spaces are replaced with +
+    stdout_text, stderr_text = p.communicate(sentiString.replace(" ","+"))
+    
+    print 3, stdout_text
+    print 4, stderr_text
+    
+    #remove the tab spacing between the positive and negative ratings. e.g. 1    -5 -> 1-5
+    stdout_text = stdout_text.rstrip().replace("\t","")
+    
+    print 5, stdout_text
+    
+    return stdout_text
+
+rateSentiment("cool+this+game")

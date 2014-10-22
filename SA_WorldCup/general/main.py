@@ -18,9 +18,9 @@
 #
 #
 
-from util.util import stringToDict, pre_process
+from util import stringToDict, pre_process, rateSentiment
 
-PATH = '/home/kiko/workspace/SA_WorldCup/Tweets_WorldCup_2014/'
+PATH = '/home/kiko/workspace/Tweets_WorldCup_2014/'
 
 if __name__ == '__main__':
     import sqlite3
@@ -32,7 +32,9 @@ if __name__ == '__main__':
     bd1_cursor = bd1.cursor()
     
     contador = 0
+    print rateSentiment("Damn man I don't believe this")
     
+    """
     for row in bd1_cursor.execute("SELECT tweet FROM tweets_tweet"):
         if contador >= 481265:
             dict_row = stringToDict(row[0])
@@ -40,6 +42,7 @@ if __name__ == '__main__':
                 tweet = dict_row['text']
                 pre_processed = pre_process(tweet)
                 if len(pre_processed) > 0:
-                    print pre_processed
+                    
         else:
             contador += 1
+    """
