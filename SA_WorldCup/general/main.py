@@ -18,7 +18,7 @@
 #
 #
 
-from util import stringToDict, pre_process, rateSentiment, phrase_strength
+from util import string_to_dict, pre_process, phrase_strength
 
 PATH = '/home/kiko/workspace/Tweets_WorldCup_2014/'
 
@@ -35,7 +35,7 @@ if __name__ == '__main__':
     
     for row in bd1_cursor.execute("SELECT tweet FROM tweets_tweet"):
         if contador >= 481265:
-            dict_row = stringToDict(row[0])
+            dict_row = string_to_dict(row[0])
             if dict_row["lang"] == "en":
                 tweet = dict_row['text']
                 pre_processed = pre_process(tweet)

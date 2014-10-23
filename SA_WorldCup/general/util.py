@@ -51,11 +51,11 @@ def contain_substring(word):
             flag = True
     return flag 
 
-def stringToDict(text):
+def string_to_dict(text):
     import ast
     return ast.literal_eval(text)
     
-def rateSentiment(sentiString):
+def rate_sentiment(sentiString):
     import shlex, subprocess
     
     #open a subprocess using shlex to get the command line string into the correct args list format
@@ -89,7 +89,7 @@ def count_strength(strengths):
 def phrase_strength(word_list):
     sum_strengths = 0
     for word in word_list:
-        sum_strengths += rateSentiment(word.encode('utf8'))
+        sum_strengths += rate_sentiment(word.encode('utf8'))
     return sum_strengths
     
     
