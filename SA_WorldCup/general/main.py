@@ -18,7 +18,7 @@
 #
 #
 
-from util import string_to_dict, pre_process, phrase_strength
+from util import string_to_dict, pre_process, phrase_strength, is_in_english
 
 PATH = '/home/kiko/workspace/Tweets_WorldCup_2014/'
 
@@ -32,17 +32,15 @@ if __name__ == '__main__':
     bd1_cursor = bd1.cursor()
     
     contador = 0
-    
     for row in bd1_cursor.execute("SELECT tweet FROM tweets_tweet"):
         if contador >= 481265:
-            dict_row = string_to_dict(row[0])
-            if dict_row["lang"] == "en":
-                tweet = dict_row['text']
-                pre_processed = pre_process(tweet)
+            tweet_dict = string_to_dict(row[0])
+            if is_in_english(tweet_dict):
+                tweet_text = tweet_dict['text']
+                pre_processed = pre_process(tweet_text)
                 if len(pre_processed) > 0:
                     print phrase_strength(pre_processed)
             contador += 1
-                    
         else:
             contador += 1
     print contador

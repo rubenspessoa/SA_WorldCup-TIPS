@@ -91,7 +91,9 @@ def phrase_strength(word_list):
     for word in word_list:
         sum_strengths += rate_sentiment(word.encode('utf8'))
     return sum_strengths
-    
+
+def is_in_english(tweet_dict):
+    return tweet_dict["lang"] == "en"  
     
     
         
