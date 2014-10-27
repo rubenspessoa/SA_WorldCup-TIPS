@@ -39,7 +39,7 @@ if __name__ == '__main__':
                 tweet_text = tweet_dict['text']
                 pre_processed = pre_process(tweet_text)
                 if len(pre_processed) > 0:
-                    print phrase_strength(pre_processed)
+                    print phrase_strength(pre_processed), tweet_text 
             contador += 1
         else:
             contador += 1
