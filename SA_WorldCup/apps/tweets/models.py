@@ -21,19 +21,15 @@
 from django.db import models
 
 class Tweet(models.Model):
+    
+    raw = models.TextField()
     tweet = models.TextField()
-
+    parsed = models.TextField()
+    timing = models.TextField()
+    place = models.TextField(null=True)
+    geo = models.TextField(null=True)
+    coordinates = models.TextField(null=True)
+    score = models.IntegerField()
+    
     def __unicode__(self):
         return self.tweet
-    
-class Tweet_Parsed(models.Model):
-    tweet_parsed = models.TextField()
-
-    def __unicode__(self):
-        return self.tweet_parsed
-    
-class Score(models.Model):
-    score = models.IntegerField()
-
-    def __unicode__(self):
-        return self.score
