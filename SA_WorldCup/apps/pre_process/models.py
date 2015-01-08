@@ -16,16 +16,14 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>
 #
-#
 
 from django.db import models
+from SA_WorldCup.apps.tweets.models import Tweet
 
-class Tweet(models.Model):
-    raw = models.TextField()
-    tweet = models.TextField(null=True, max_length=180)
-    retweeted = models.BooleanField()
-    
-class Tweet_retweeted(models.Model):
-    raw_original = models.TextField()
-    text_original = models.TextField(max_length=180)
-    retweet = models.ForeignKey(Tweet)
+class pp_technique(models.Model):
+    description = models.TextField(max_length=140)
+
+class pre_processed(models.Model):
+    tweet = models.ForeignKey(Tweet)
+    pre_processed = models.TextField(max_length=180)
+    pre_process_technique = models.ForeignKey(pp_technique)

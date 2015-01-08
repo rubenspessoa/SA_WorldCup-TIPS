@@ -1,14 +1,15 @@
 eclipse.preferences.version=1
 encoding//SA_WorldCup/__init__.py=utf-8
-encoding//SA_WorldCup/apps/__init__.py=utf-8
+encoding//SA_WorldCup/apps/pre_process/models.py=utf-8
 encoding//SA_WorldCup/apps/tweets/__init__.py=utf-8
 encoding//SA_WorldCup/apps/tweets/admin.py=utf-8
 encoding//SA_WorldCup/apps/tweets/models.py=utf-8
 encoding//SA_WorldCup/apps/tweets/tests.py=utf-8
 encoding//SA_WorldCup/apps/tweets/views.py=utf-8
 encoding//SA_WorldCup/general/main.py=utf-8
-encoding//SA_WorldCup/general/util.py=utf-8
+encoding//SA_WorldCup/main/Main.py=utf-8
 encoding//SA_WorldCup/settings.py=utf-8
 encoding//SA_WorldCup/urls.py=utf-8
+encoding//SA_WorldCup/util/util.py=utf-8
 encoding//SA_WorldCup/wsgi.py=utf-8
 encoding/manage.py=utf-8

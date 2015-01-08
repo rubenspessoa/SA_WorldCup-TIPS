@@ -59,9 +59,9 @@ def rate_sentiment(sentiString):
     import shlex, subprocess
     
     #open a subprocess using shlex to get the command line string into the correct args list format
-    commands = shlex.split("java -jar SentiStrength.jar stdin sentidata /home/kiko/workspace/Sentistrength/")
+    commands = shlex.split("java -jar SentiStrength.jar stdin sentidata /Users/rubenspessoa/Dropbox/TIPS/SA_social_networks/Sentistrength/")
     p = subprocess.Popen(commands,
-                         cwd=r'/home/kiko/workspace/Sentistrength/', 
+                         cwd=r'/Users/rubenspessoa/Dropbox/TIPS/SA_social_networks/Sentistrength/', 
                          stdin = subprocess.PIPE, 
                          stdout = subprocess.PIPE, 
                          stderr = subprocess.PIPE)
